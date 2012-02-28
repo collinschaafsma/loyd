@@ -1,4 +1,6 @@
 Loyd::Application.routes.draw do
+  resources :buildings
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
