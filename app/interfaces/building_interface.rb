@@ -1,5 +1,5 @@
 module Interfaces
-  class BuildingInterface
+  class BuildingInterface < ApplicationInterface
 
     attr_reader :receiver
 

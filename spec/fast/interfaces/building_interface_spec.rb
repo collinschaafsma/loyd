@@ -1,4 +1,5 @@
 require './spec/fast/spec_helper'
+require './app/interfaces/application_interface'
 require './app/interfaces/building_interface'
 require './app/models/building'
 
