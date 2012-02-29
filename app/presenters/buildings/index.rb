@@ -1,6 +1,3 @@
-require './app/presenters/application_presenter'
-require './app/interfaces/building_interface'
-
 module Presenters
   module Buildings
     class Index < Presenters::ApplicationPresenter

@@ -1,8 +1,7 @@
-require './app/presenters/buildings/index'
-require './app/presenters/buildings/show'
-require './app/interfaces/building_interface'
-
 class BuildingsController < ApplicationController
+  before_filter :initialize_building_interface,
+    :only => [:new, :create, :edit, :update, :destroy]
+
   def index
     @presenter = Presenters::Buildings::Index.new
   end
@@ -12,15 +11,15 @@ class BuildingsController < ApplicationController
   end
 
   def new
-    @building = Interfaces::BuildingInterface.new.new_building
+    @building = @building_interface.new_building
   end
 
   def edit
-    @building = Interfaces::BuildingInterface.new.find(params[:id])
+    @building = @building_interface.find(params[:id])
   end
 
   def create
-    if Interfaces::BuildingInterface.new.build(params[:building])
+    if @building_interface.build(params[:building])
       redirect_to @building, notice: 'Building was successfully created.'
     else
       render action: "new"
@@ -28,7 +27,7 @@ class BuildingsController < ApplicationController
   end
 
   def update
-    if Interfaces::BuildingInterface.new.remodel(params[:id], params[:building])
+    if @building_interface.remodel(params[:id], params[:building])
       redirect_to @building, notice: 'Building was successfully updated.'
     else
       render action: "edit"
@@ -36,7 +35,12 @@ class BuildingsController < ApplicationController
   end
 
   def destroy
-    Interfaces::BuildingInterface.new.demolish(params[:id])
+    @building_interface.demolish(params[:id])
     redirect_to buildings_url
+  end
+
+private
+  def initialize_building_interface
+    @building_interface = Interfaces::BuildingInterface.new
   end
 end
