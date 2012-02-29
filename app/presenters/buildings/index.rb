@@ -9,7 +9,7 @@ module Presenters
       end
 
       def buildings
-        @building_interface.all
+        @building_interface.fetch_all_buildings
       end
 
       def building_location(building)

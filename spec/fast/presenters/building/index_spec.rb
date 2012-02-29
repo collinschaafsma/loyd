@@ -5,7 +5,7 @@ require './app/presenters/buildings/index'
 
 describe Presenters::Buildings::Index do
   subject do
-    interface = Interfaces::BuildingInterface.new(BuildingDummy)
+    interface = Interfaces::BuildingInterface.new(BuildingMock)
     Presenters::Buildings::Index.new(interface)
   end
 
@@ -17,7 +17,7 @@ describe Presenters::Buildings::Index do
 
   describe "#building_location" do
     it "should return a building location based on city and state" do
-      subject.building_location(BuildingDummy.new).should == "Boulder, CO"
+      subject.building_location(BuildingMock.new).should == "Boulder, CO"
     end
   end
 end

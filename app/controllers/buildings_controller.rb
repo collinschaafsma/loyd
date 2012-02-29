@@ -15,11 +15,11 @@ class BuildingsController < ApplicationController
   end
 
   def edit
-    @building = @building_interface.find(params[:id])
+    @building = @building_interface.find_building(params[:id])
   end
 
   def create
-    if @building_interface.build(params[:building])
+    if @building_interface.create_building(params[:building])
       redirect_to buildings_url, notice: 'Building was successfully created.'
     else
       render action: "new"
@@ -27,7 +27,7 @@ class BuildingsController < ApplicationController
   end
 
   def update
-    if @building_interface.remodel(params[:id], params[:building])
+    if @building_interface.update_building(params[:id], params[:building])
       redirect_to buildings_url, notice: 'Building was successfully updated.'
     else
       render action: "edit"
@@ -35,7 +35,7 @@ class BuildingsController < ApplicationController
   end
 
   def destroy
-    @building_interface.demolish(params[:id])
+    @building_interface.destroy_building(params[:id])
     redirect_to buildings_url
   end
 

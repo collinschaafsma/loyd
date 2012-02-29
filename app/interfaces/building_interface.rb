@@ -7,29 +7,26 @@ module Interfaces
       @receiver = receiver
     end
 
-    def build!(options)
-      @receiver.create!(options)
+    def create_building(options)
+      building = new_building(options)
+      building.save
     end
 
-    def build(options)
-      @receiver.create(options)
-    end
-
-    def remodel(id, options = {})
-      building = find(id)
+    def update_building(id, options = {})
+      building = find_building(id)
       building.update_attributes(options)
     end
 
-    def demolish(id)
-      building = find(id)
+    def destroy_building(id)
+      building = find_building(id)
       building.destroy
     end
 
-    def find(id)
+    def find_building(id)
       @receiver.find(id)
     end
 
-    def all
+    def fetch_all_buildings
       @receiver.all
     end
 

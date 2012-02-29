@@ -4,8 +4,19 @@ class ActiveRecord::Base
   end
 end
 
+class MockTable
+
+end
+
 class ActiveRecord::ConnectionAdapters::DummyAdapter <
     ActiveRecord::ConnectionAdapters::AbstractAdapter
 
+    def tables
+      []
+    end
+
+    # def initialize(config={})
+    #   @tables = {}
+    # end
 end
 

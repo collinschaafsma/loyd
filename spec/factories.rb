@@ -1,4 +1,4 @@
-class BuildingDummy < InactiveRecord
+class BuildingMock < InactiveRecord
   def initialize(options = {})
     defaults = {
       id:           1,
@@ -9,6 +9,6 @@ class BuildingDummy < InactiveRecord
       type:         "Skyscrapper",
       year_built:   2012,
     }
-    build(defaults.merge(options))
+    stub(defaults.merge(options))
   end
 end
