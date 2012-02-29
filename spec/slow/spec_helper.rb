@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = "test"
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
+require File.expand_path("../../../config/environment", __FILE__)
+require 'capybara/rails'
 require 'capybara/rspec'
 require 'shoulda/matchers/active_record'
 require 'shoulda/matchers/active_model'
