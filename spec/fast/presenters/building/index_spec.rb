@@ -1,6 +1,5 @@
 require './spec/fast/spec_helper'
 require './app/interfaces/building_interface'
-require './app/presenters/application_presenter'
 require './app/presenters/buildings/index'
 
 describe Presenters::Buildings::Index do

@@ -1,3 +1,5 @@
+require './app/interfaces/application_interface'
+
 module Interfaces
   class BuildingInterface < ApplicationInterface
 

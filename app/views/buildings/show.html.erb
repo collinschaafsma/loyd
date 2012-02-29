@@ -2,39 +2,39 @@
 
 <p>
   <b>Name:</b>
-  <%= @building.name %>
+  <%= @presenter.building.name %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @building.description %>
+  <%= @presenter.building.description %>
 </p>
 
 <p>
   <b>City:</b>
-  <%= @building.city %>
+  <%= @presenter.building.city %>
 </p>
 
 <p>
   <b>State:</b>
-  <%= @building.state %>
+  <%= @presenter.building.state %>
 </p>
 
 <p>
   <b>Type:</b>
-  <%= @building.type %>
+  <%= @presenter.building.type %>
 </p>
 
 <p>
   <b>Year built:</b>
-  <%= @building.year_built %>
+  <%= @presenter.building.year_built %>
 </p>
 
 <p>
   <b>Featured:</b>
-  <%= @building.featured %>
+  <%= @presenter.building.featured %>
 </p>
 
 
-<%= link_to 'Edit', edit_building_path(@building) %> |
+<%= link_to 'Edit', edit_building_path(@presenter.building) %> |
 <%= link_to 'Back', buildings_path %>
