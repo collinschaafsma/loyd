@@ -20,7 +20,7 @@ class BuildingsController < ApplicationController
 
   def create
     if @building_interface.build(params[:building])
-      redirect_to @building, notice: 'Building was successfully created.'
+      redirect_to buildings_url, notice: 'Building was successfully created.'
     else
       render action: "new"
     end
@@ -28,7 +28,7 @@ class BuildingsController < ApplicationController
 
   def update
     if @building_interface.remodel(params[:id], params[:building])
-      redirect_to @building, notice: 'Building was successfully updated.'
+      redirect_to buildings_url, notice: 'Building was successfully updated.'
     else
       render action: "edit"
     end
